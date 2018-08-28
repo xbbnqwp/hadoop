@@ -1,0 +1,31 @@
+version: '2.1'
+services:
+  cluster1:
+    build: ./cluster1/
+    ports:
+      - "8088:8088"
+      - "50070:50070"
+    hostname: hdp1.hw.com
+    extra_hosts:
+      - "hdp2.hw.com:172.25.0.102"
+    networks:
+      hdpnetwork:
+        ipv4_address: 172.25.0.101
+  cluster2:
+    build: ./cluster2/
+    ports:
+      - "8089:8088"
+      - "50071:50070"
+    extra_hosts:
+      - "hdp1.hw.com:172.25.0.101"
+    hostname: hdp2.hw.com
+    networks:
+      hdpnetwork:
+        ipv4_address: 172.25.0.102
+
+networks:
+  hdpnetwork:
+    driver: bridge
+    ipam:
+      config:
+      - subnet: 172.25.0.0/24
