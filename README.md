@@ -12,9 +12,24 @@ Following ports are exposed to the host
 1. cluster-1 - `(8088:hadoop, 50070:dfshealth)`
 2. cluster-2 - `(8089:hadoop, 50071:dfshealth)`
 
-Check distcp between these 2 clusters
+Copy data to hdfs
+```
+echo "Hello Wolrd" > hello.txt
+hadoop fs -put hello.txt /
+```
+
+See data in hdfs
+```
+hadoop fs -ls /
+# see data on cluster 1
+hadoop fs -ls hdfs://hdp1.hw.com:8020/ 
+# see data on cluster 2
+hadoop fs -ls hdfs://hdp2.hw.com:8020/ 
+```
+
+Copy data from Cluster-1 to Cluster-2 using distcp
  ```
- hadoop distcp hdfs://hdp1.hw.com:8020/file.txt hdfs://hdp2.hw.com:8020/
+ hadoop distcp hdfs://hdp1.hw.com:8020/hello.txt hdfs://hdp2.hw.com:8020/
  ```
 
 
