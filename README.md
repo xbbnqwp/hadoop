@@ -31,5 +31,3 @@ Copy data from Cluster-1 to Cluster-2 using distcp
  ```
  hadoop distcp hdfs://hdp1.hw.com:8020/hello.txt hdfs://hdp2.hw.com:8020/
  ```
-
-
