@@ -1,7 +1,8 @@
-version: '2.1'
+version: '3'
 services:
   cluster1:
     build: ./cluster1/
+    container_name: hdp_cluster_1
     ports:
       - "8088:8088"
       - "50070:50070"
@@ -13,6 +14,7 @@ services:
         ipv4_address: 172.25.0.101
   cluster2:
     build: ./cluster2/
+    container_name: hdp_cluster_2
     ports:
       - "8089:8088"
       - "50071:50070"
