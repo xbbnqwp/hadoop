@@ -4,7 +4,7 @@
 cd clusters
 docker-compose up -d
 ```
-There will be two containers that will start `hdp_cluster_1` and `hdp_cluster_1`
+There will be two containers that will start `hdp_cluster_1` and `hdp_cluster_2`
 So, you can login to any of the containers using the following command
 ```
 docker exec -it hdp_cluster_1 bash
