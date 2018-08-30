@@ -4,6 +4,13 @@
 cd clusters
 docker-compose up -d
 ```
+There will be two containers that will start `hdp_cluster_1` and `hdp_cluster_2`
+So, you can login to any of the containers using the following command
+```
+docker exec -it hdp_cluster_1 bash
+docker exec -it hdp_cluster_2 bash
+```
+
 This is configured to run two single node clusters on docker with static ip's and hostnames as follows
 1. `172.25.0.101` - `hdp1.hw.com`
 2. `172.25.0.102` - `hdp2.hw.com`
