@@ -1,4 +1,4 @@
-FROM ekiras/hadoop:latest
+FROM ekiras/hadoop:2.9.1
 
 WORKDIR /opt
 ARG HADOOP_HOME=/opt/hadoop-2.9.1/
