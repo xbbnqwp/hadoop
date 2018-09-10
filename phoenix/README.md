@@ -1,7 +1,7 @@
 # About Image
 
 Following are the properties about the image
-1. Build on `ekiras/hadoop:2.6.4` and hbase `1.3.1`
+1. Build on `ekiras/hbase:hadoop-2.6.4-hbase-1.3.1`
 2. Hadoop, Hbase and phoenix are in `/opt/` directory
 3. Java home is `/usr/lib/jvm/java-8-openjdk-amd64`
 4. Hostname for hadoop is `localhost` and running on port `8020`, and is working in pseudo-distributed installation. 
