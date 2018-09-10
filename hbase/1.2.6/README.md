@@ -1,6 +1,3 @@
-# Prerequisite to build Docker image
-You need to download the `hbase-1.2.6-bin.tar.gz` into the current directory for `Dockerfile` to work. 
-
 # About Image
 
 Following are the properties about the image
