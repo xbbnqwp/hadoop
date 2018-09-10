@@ -1,7 +1,7 @@
 FROM ekiras/hadoop:2.6.4
 
 ARG HBASE_HOME="/opt/hbase"
-ARG HBASE_VERSION=1.2.6
+ARG HBASE_VERSION=1.3.1
 
 #----------Setup hbase
 COPY hbase-${HBASE_VERSION}-bin.tar.gz /opt
