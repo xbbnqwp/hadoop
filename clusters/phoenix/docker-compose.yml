@@ -1,0 +1,45 @@
+version: '3'
+services:
+  cluster1:
+    build:
+      context: .
+      args:
+        hostname: hdp1.hw.com
+    container_name: pnx_cluster_1
+    ports:
+      - "8088:8088"
+      - "2181:2181"
+      - "50070:50070"
+      - "16010:16010"
+      - "8042:8042"
+    hostname: hdp1.hw.com
+    extra_hosts:
+      - "hdp2.hw.com:172.25.0.102"
+    networks:
+      hdpnetwork:
+        ipv4_address: 172.25.0.101
+  cluster2:
+    build:
+      context: .
+      args:
+        hostname: hdp2.hw.com
+    container_name: pnx_cluster_2
+    ports:
+      - "8089:8088"
+      - "2182:2181"
+      - "50071:50070"
+      - "16011:16010"
+      - "8043:8042"
+    hostname: hdp2.hw.com
+    extra_hosts:
+      - "hdp1.hw.com:172.25.0.101"
+    networks:
+      hdpnetwork:
+        ipv4_address: 172.25.0.102
+
+networks:
+  hdpnetwork:
+    driver: bridge
+    ipam:
+      config:
+      - subnet: 172.25.0.0/24
