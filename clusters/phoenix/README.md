@@ -19,6 +19,7 @@ This is configured to run two single node clusters on docker with static ip's an
 2. `172.25.0.102` - `hdp2.hw.com`
 
 
+# Available Services
 Following services are available at the following url's.
 
 | Service | Cluster 1 | Cluster 2
@@ -29,8 +30,21 @@ Following services are available at the following url's.
 | Log manager | [http://localhost:8042](http://localhost:8042)|[http://localhost:8043](http://localhost:8043) |
 
 
+# Running Phoenix sqlline
+Login to any of the phoenix cluster using following commands  
+```
+docker exec -it pnx_cluster_1 bash
+# inside the docker container
+sqlline.py localhost
+```
+
+Or you can also run sql line without logging into the container by uring the following command.
+```
+docker exec -it pnx_cluster_1 sqlline.py localhost
+```
 
 
+# HDFS commands
 Copy data to hdfs
 ```
 echo "Hello Wolrd" > hello.txt
