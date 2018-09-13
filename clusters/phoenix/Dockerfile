@@ -6,6 +6,7 @@ ARG hostname
 COPY conf/core-site.xml $HADOOP_HOME/etc/hadoop/
 COPY conf/hbase-site.xml $HBASE_HOME/conf/
 COPY conf/regionservers $HBASE_HOME/conf/
+COPY conf/phoenix-hbase-site.xml $PHOENIX_HOME/bin/hbase-site.xml
 
 EXPOSE 8088 8020 50070 8042 2181 16010
 

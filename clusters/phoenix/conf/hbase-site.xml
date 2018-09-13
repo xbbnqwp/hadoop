@@ -20,4 +20,8 @@
         <value>/hbase</value>
         <source>hbase-site.xml</source>
     </property>
+    <property>
+        <name>phoenix.schema.isNamespaceMappingEnabled</name>
+        <value>true</value>
+    </property>
 </configuration>
