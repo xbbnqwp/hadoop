@@ -31,18 +31,17 @@ Following services are available at the following url's.
 
 
 # Running Phoenix sqlline
-Login to any of the phoenix cluster using following commands  
+Login to any of the phoenix cluster and use the following commands.
+  
 ```
-docker exec -it pnx_cluster_1 bash
-# inside the docker container
-sqlline.py localhost
-```
-
-Or you can also run sql line without logging into the container by uring the following command.
-```
-docker exec -it pnx_cluster_1 sqlline.py localhost
+sqlline.py hdp1.hw.com:2181
 ```
 
+
+Import sample data to phoenix
+```
+psql.py hdp1.hw.com /opt/phoenix/examples/WEB_STAT.csv /opt/phoenix/examples/WEB_STAT.csv 
+```
 
 # HDFS commands
 Copy data to hdfs
