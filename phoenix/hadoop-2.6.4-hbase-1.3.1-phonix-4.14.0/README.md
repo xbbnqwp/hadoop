@@ -6,6 +6,11 @@ Following are the properties about the image
 3. Java home is `/usr/lib/jvm/java-8-openjdk-amd64`
 4. Hostname for hadoop is `localhost` and running on port `8020`, and is working in pseudo-distributed installation. 
 
+# Configurations
+* Hadoop - 2.6.4
+* Hbase - 1.1.2
+* Phoenix - 4.14.0
+
 # Download Hbase image
 ```Dockerfile
 docker pull ekiras/phoenix:hdp-2.6.4-hbase-1.3.1-phoenix-4.14.0
