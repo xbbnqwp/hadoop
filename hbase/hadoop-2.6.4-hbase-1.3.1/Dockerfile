@@ -4,8 +4,7 @@ ARG HBASE_HOME="/opt/hbase"
 ARG HBASE_VERSION=1.3.1
 
 #----------Setup hbase
-COPY hbase-${HBASE_VERSION}-bin.tar.gz /opt
-RUN tar -xvzf hbase-${HBASE_VERSION}-bin.tar.gz && mv /opt/hbase-${HBASE_VERSION} /opt/hbase && rm hbase-${HBASE_VERSION}-bin.tar.gz
+RUN curl -o /opt/hbase-${HBASE_VERSION}-bin.tar.gz  https://archive.apache.org/dist/hbase/${HBASE_VERSION}/hbase-${HBASE_VERSION}-bin.tar.gz && tar -xvzf hbase-${HBASE_VERSION}-bin.tar.gz && mv /opt/hbase-${HBASE_VERSION} /opt/hbase && rm hbase-${HBASE_VERSION}-bin.tar.gz
 COPY conf/hbase-env.sh /opt/hbase/conf
 COPY conf/hbase-site.xml /opt/hbase/conf
 
