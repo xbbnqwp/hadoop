@@ -16,7 +16,7 @@ RUN tar -xvzf apache-phoenix-${PHOENIX_VERSION}-bin.tar.gz && mv apache-phoenix-
 RUN cp /opt/phoenix/phoenix-${PHOENIX_VERSION}-server.jar ${HBASE_HOME}/lib
 RUN cp /opt/phoenix/phoenix-${PHOENIX_VERSION}-client.jar ${HBASE_HOME}/lib
 RUN cp /opt/phoenix/phoenix-core-${PHOENIX_VERSION}.jar ${HBASE_HOME}/lib
-
+COPY conf/phoenix-hbase-site.xml $PHOENIX_HOME/bin/hbase-site.xml
 
 
 #----------Set env variables
