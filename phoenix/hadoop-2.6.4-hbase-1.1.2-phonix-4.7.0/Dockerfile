@@ -4,7 +4,7 @@ ARG HADOOP_HOME="/opt/hadoop"
 ARG HBASE_HOME="/opt/hbase"
 ARG PHOENIX_HOME="/opt/phoenix"
 ARG PHOENIX_VERSION="4.7.0-HBase-1.1"
-
+ARG hostname="hdp.hw.com"
 #----------Setup hbase
 #COPY phoenix-${PHOENIX_VERSION}-bin.tar.gz /opt/
 
@@ -29,4 +29,7 @@ EXPOSE 50070 8042 8088 16000 16010 16020 9095 8085 2181
 
 
 #------------------------
-ENTRYPOINT service ssh start && hdfs namenode -format && start-dfs.sh && start-yarn.sh && start-hbase.sh && tail -f /dev/null
+ENTRYPOINT sed -i "s/{{HOST}}/`hostname`/g" $HADOOP_HOME/etc/hadoop/core-site.xml \
+           && sed -i "s/{{HOST}}/`hostname`/g" $HBASE_HOME/conf/hbase-site.xml \
+           && sed -i "s/{{HOST}}/`hostname`/g" $HBASE_HOME/conf/regionservers \
+           && service ssh start && hdfs namenode -format && start-dfs.sh && start-yarn.sh && start-hbase.sh && tail -f /dev/null

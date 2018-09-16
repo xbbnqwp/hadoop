@@ -1,3 +1,4 @@
 *.iml
 .idea/
 *.tar.gz
+tmp/

@@ -19,7 +19,7 @@ docker pull ekiras/phoenix:hdp-2.6.4-hbase-1.1.2-phoenix-4.7.0
 # Run Hbase docker container
 Use the following command to run docker container
 ```Dockerfile
-docker run -itd --name phoenix -p50070:50070 -p8042:8042 -p8088:8088 -p16000:16000 -p16010:16010 -p16020:16020 -p9095:9095 -p8085:8085 -p2181:2181 ekiras/phoenix:hdp-2.6.4-hbase-1.1.2-phoenix-4.7.0
+docker run -itd --name phoenix -p50070:50070 -p8042:8042 -p8088:8088 -p16000:16000 -p16010:16010 -p16020:16020 -p9095:9095 -p8085:8085 -p2181:2181 -h hdp.hw.com ekiras/phoenix:hdp-2.6.4-hbase-1.1.2-phoenix-4.7.0
 ```
 
 # Web services available
