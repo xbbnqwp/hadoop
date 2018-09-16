@@ -6,13 +6,12 @@ ARG PHOENIX_HOME="/opt/phoenix"
 ARG PHOENIX_VERSION="4.14.0-HBase-1.3"
 
 #----------Setup hbase
-COPY apache-phoenix-${PHOENIX_VERSION}-bin.tar.gz /opt/
 COPY conf/hbase-env.sh ${HBASE_HOME}/conf
 COPY conf/hbase-site.xml ${HBASE_HOME}/conf
 COPY conf/regionservers ${HBASE_HOME}/conf
 
 RUN apt-get install -y vim
-RUN tar -xvzf apache-phoenix-${PHOENIX_VERSION}-bin.tar.gz && mv apache-phoenix-${PHOENIX_VERSION}-bin phoenix && rm apache-phoenix-${PHOENIX_VERSION}-bin.tar.gz
+RUN curl -o /opt/apache-phoenix-${PHOENIX_VERSION}-bin.tar.gz  https://archive.apache.org/dist/phoenix/apache-phoenix-${PHOENIX_VERSION}/bin/apache-phoenix-${PHOENIX_VERSION}-bin.tar.gz  &&  tar -xvzf apache-phoenix-${PHOENIX_VERSION}-bin.tar.gz && mv apache-phoenix-${PHOENIX_VERSION}-bin phoenix && rm apache-phoenix-${PHOENIX_VERSION}-bin.tar.gz
 RUN cp /opt/phoenix/phoenix-${PHOENIX_VERSION}-server.jar ${HBASE_HOME}/lib
 RUN cp /opt/phoenix/phoenix-${PHOENIX_VERSION}-client.jar ${HBASE_HOME}/lib
 RUN cp /opt/phoenix/phoenix-core-${PHOENIX_VERSION}.jar ${HBASE_HOME}/lib
