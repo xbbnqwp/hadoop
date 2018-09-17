@@ -11,7 +11,7 @@ ARG hostname="hdp.hw.com"
 COPY conf/hbase-env.sh ${HBASE_HOME}/conf
 COPY conf/hbase-site.xml ${HBASE_HOME}/conf
 COPY conf/regionservers ${HBASE_HOME}/conf
-COPY conf/core-site.xml ${HADOOP_HOME}/conf
+COPY conf/core-site.xml ${HADOOP_HOME}/etc/hadoop/
 
 RUN apt-get install -y vim
 RUN curl -o /opt/phoenix-${PHOENIX_VERSION}-bin.tar.gz https://archive.apache.org/dist/phoenix/phoenix-${PHOENIX_VERSION}/bin/phoenix-${PHOENIX_VERSION}-bin.tar.gz && tar -xvzf phoenix-${PHOENIX_VERSION}-bin.tar.gz && mv phoenix-${PHOENIX_VERSION}-bin phoenix && rm phoenix-${PHOENIX_VERSION}-bin.tar.gz
