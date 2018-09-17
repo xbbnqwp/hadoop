@@ -21,6 +21,13 @@ Use the following command to run docker container
 ```Dockerfile
 docker run -itd --name phoenix -p50070:50070 -p8042:8042 -p8088:8088 -p16000:16000 -p16010:16010 -p16020:16020 -p9095:9095 -p8085:8085 -p2181:2181 -h hdp.hw.com ekiras/phoenix:hdp-2.6.4-hbase-1.3.1-phoenix-4.14.0
 ```
+# Verify Services
+You can verify that all services are up and running by using following command
+```
+docker exec -it phoenix jps | wc -l
+```
+The above command should give `9` as the output. (The services may still some extra time to come up properly, the number shows that the services have started)
+
 
 # Web services available
 Following services can be accessed on following urls
